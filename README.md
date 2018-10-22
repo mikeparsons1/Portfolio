@@ -1,2 +1,3 @@
-# Portfolio
-Online portfolio to supplement resume
+# Michael Parsons's Portfolio
+
+This is my Professional Portfolio.  It uses AWS and ReactJS
