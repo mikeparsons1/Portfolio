@@ -3,10 +3,10 @@ version: 0.1
 phases:
   build:
     commands:
-    - echo nothing to do yet
+      - echo Entered the build phase...
 artifacts:
-  filesa:
+  files:
     - index.html
-    - favicon.ico
-    - styles/*
+    - facicon.ico
     - images/*
+    - styles/*
