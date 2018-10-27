@@ -6,6 +6,11 @@ import zipfile
 import mimetypes
 
 def lambda_handler(event, context):
+
+    sns = boto3.resource('sns')
+    topic = sns.Topic('arn:aws:sns:us-east-1:579448876716:deployPortfolioTopic')
+
+
     s3 = boto3.resource('s3',config=Config(signature_version='s3v4'))
 
     portfolio_bucket = s3.Bucket('portfolio.mikeparsons.info')
@@ -22,6 +27,8 @@ def lambda_handler(event, context):
                 ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
     		portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
 
+    print 'job done'
+    topic.publish(Subject='Portfolio deployed', Message = "Portfolio deployed successfully.")
     return {
         "statusCode": 200,
         "body": json.dumps('Hello from Lambda!')
