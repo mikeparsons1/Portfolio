@@ -14,3 +14,8 @@ Google Fonts
 Atom
 Sublime Text3
 Mac Terminal
+
+
+AWS
+Cloud Fount
+IAM
